@@ -78,7 +78,7 @@ export function renderCount(n) {
  * - stock 0 : classe out-of-stock sur l'article ET bouton désactivé (disabled = true)
  * - palier 2 : classe is-selected si la carte est dans le panier (cart.some(...))
  */
-export function renderGrid(list) {
+export function renderGrid(list,cart) {
   // TODO 1. Videz #grid
   grid.innerHTML="";
    

@@ -18,9 +18,16 @@
  */
 export function searchCards(cards, term) {
   // TODO 1. Nettoyez le terme : trim() puis toLowerCase()
+let clean = term.trim().toLowerCase()
   // TODO 2. Si le terme est vide, renvoyez une copie de cards
+if(clean === "")
+{
+  return [...cards]
+}
   // TODO 3. Sinon, renvoyez cards.filter(...) : le nom en minuscules contient-il le terme ?
-  return [];
+  return cards.filter(card => //current obje being examined
+card.nom.toLowerCase().includes(clean)
+  );
 }
 
 /**
