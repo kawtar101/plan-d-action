@@ -99,7 +99,10 @@ form.addEventListener("submit", (event) => {
 });
 
 // ---------- Démarrage ----------
+
 refresh();
+ui.renderGrid(state.cards)
+
 
 // ---------- Pour tester vos fonctions dans la console ----------
 // Exemple : dex.searchCards(dex.cards, "kit")   ou   dex.addToCart([], 1, dex.cards)

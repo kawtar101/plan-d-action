@@ -59,6 +59,7 @@ export function renderTypes(counts, activeType) {
  */
 export function renderCount(n) {
   // TODO
+  
 }
 
 /**
@@ -77,11 +78,41 @@ export function renderCount(n) {
  * - stock 0 : classe out-of-stock sur l'article ET bouton désactivé (disabled = true)
  * - palier 2 : classe is-selected si la carte est dans le panier (cart.some(...))
  */
-export function renderGrid(list, cart) {
+export function renderGrid(list) {
   // TODO 1. Videz #grid
+  grid.innerHTML="";
+   
+
   // TODO 2. Liste vide : ajoutez le message et arrêtez (return)
+ if (list.length === 0)
+ {
+    return;
+ }
   // TODO 3. Pour chaque carte : créez l'article et ses enfants, puis grid.append(article)
+  let i = 0;
+  // { id: 1, 
+  //   nom: "Emberkit", 
+  //   type: "Feu", 
+  //   rarete: "Commune",
+  //    prix: 12, stock: 8, 
+  //    image: "images/emberkit.svg", 
+  //    description: "Un petit renard dont la queue s'enflamme quand il est content." },
+  while(list.length > i)
+  {
+    const card = document.createElement("article")
+    card.innerHTML = `<article class="card" data-id="${list[i].id}">
+      <img class="card__img" src="${list[i].image}" alt="${list[i].nom}">
+      <p class="card__num">${list[i].id}</p>
+      <h3 class="card__name">${list[i].nom}</h3>
+      <p class="card__meta"><span class="badge type-feu">${list[i].type}</span> <span class="rarity">${list[i].rarete}</span></p>
+      <p class="card__price">${list[i].prix}</p>
+      <button class="btn btn--primary" type="button" data-add="1">Ajouter</button>
+    </article>`
+    grid.appendChild(card)
+    i++;
+  }
 }
+
 
 /**
  * Affiche la fiche d'une carte dans #detail : image, nom (h3), numéro + badge du type,
