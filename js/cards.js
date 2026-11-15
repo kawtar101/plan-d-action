@@ -36,7 +36,13 @@ card.nom.toLowerCase().includes(clean)
  */
 export function filterByType(cards, type) {
   // TODO
-  return [];
+  if(type === "Tous"){
+  return [...cards];
+  }
+  return cards.filter(card => 
+    card.type==type
+  ) 
+  
 }
 
 /**
