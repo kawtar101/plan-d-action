@@ -52,7 +52,9 @@ export function filterByType(cards, type) {
  */
 export function getVisibleCards(cards, filters) {
   // TODO : appelez filterByType, puis searchCards sur le résultat
-  return [];
+ const result = filterByType(cards,filters.type);
+ return searchCards(result,filters.term)
+  
 }
 
 /**
